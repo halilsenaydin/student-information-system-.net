@@ -9,7 +9,8 @@ namespace Entities.Concretes
     {
         public int Id { get; set; }
         public string CountryName { get; set; }
+        public string CountryCode { get; set; }
         public string Location { get; set; } // 39.91987 32.85427, GPS Coordinates of Ankara
-        public float ExchangeRate { get; set; } // 1 TL Ne Kadar?
+        public decimal ExchangeRate { get; set; } // 1 TL Ne Kadar?
     }
 }

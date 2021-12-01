@@ -31,11 +31,21 @@ namespace DataAccess.Concretes.EntityFramework
                              join typeOfEducation in context.TypeOfEducations
                              on lecture.TypeOfEducationId equals typeOfEducation.Id
 
+                             join curriculum in context.Curriculums
+                             on lecture.CurriculumId equals curriculum.Id
+
+                             join lectureType in context.LectureTypes
+                             on lecture.LectureTypeId equals lectureType.Id
+
                              select new LectureDetailDto
                              {
                                  Id = lecture.Id,
+                                 Class = lecture.Class,
+                                 LectureCode = lecture.LectureCode,
                                  LectureName = lecture.LectureName,
+                                 LectureType = lectureType,
                                  TypeOfEducation = typeOfEducation,
+                                 Curriculum = curriculum,
                                  DepartmentDetail = new DepartmentDetailDto
                                  {
                                      Id = department.Id,
@@ -70,11 +80,21 @@ namespace DataAccess.Concretes.EntityFramework
                              join typeOfEducation in context.TypeOfEducations
                              on lecture.TypeOfEducationId equals typeOfEducation.Id
 
+                             join curriculum in context.Curriculums
+                             on lecture.CurriculumId equals curriculum.Id
+
+                             join lectureType in context.LectureTypes
+                             on lecture.LectureTypeId equals lectureType.Id
+
                              select new LectureDetailDto
                              {
                                  Id = lecture.Id,
+                                 Class = lecture.Class,
+                                 LectureCode = lecture.LectureCode,
                                  LectureName = lecture.LectureName,
+                                 LectureType = lectureType,
                                  TypeOfEducation = typeOfEducation,
+                                 Curriculum = curriculum,
                                  DepartmentDetail = new DepartmentDetailDto
                                  {
                                      Id = department.Id,

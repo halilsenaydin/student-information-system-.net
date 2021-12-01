@@ -8,6 +8,6 @@ namespace Entities.Concretes
     public class ExamType:IEntity
     {
         public int Id { get; set; }
-        public string ExamTypeName { get; set; } // Vize, Final, Büt, Muafiyet..
+        public string ExamTypeName { get; set; } // Vize, Final, Büt, Muafiyet, Ödev..
     }
 }

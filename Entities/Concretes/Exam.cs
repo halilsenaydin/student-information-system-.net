@@ -12,5 +12,8 @@ namespace Entities.Concretes
         public int TakingLectureId { get; set; }
         public int ExamTypeId { get; set; }
         public int Point { get; set; }
+        public decimal EffektRate { get; set; }
+        public DateTime ExamDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }

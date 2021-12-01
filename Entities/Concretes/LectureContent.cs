@@ -5,9 +5,10 @@ using System.Text;
 
 namespace Entities.Concretes
 {
-    public class LectureType:IEntity // Seçmeli, Zorunlu
+    public class LectureContent:IEntity
     {
         public int Id { get; set; }
-        public string LectureTypeName { get; set; }
+        public int LectureId { get; set; }
+        public string Content { get; set; }
     }
 }

@@ -6,13 +6,12 @@ using System.Text;
 
 namespace Entities.DTOs
 {
-    public class StudentDetailDto:IDto
+    public class OpenLectureDetailDto : IDto
     {
         public int Id { get; set; }
-        public int Class { get; set; }
-        public decimal Agno { get; set; }
         public bool Status { get; set; }
-        public PersonDetailDto PersonDetail { get; set; }
-        public Curriculum Curriculum { get; set; }
+        public TeacherDetailDto TeacherDetail { get; set; }
+        public LectureDetailDto LectureDetail { get; set; }
+        public Semester Semester { get; set; }
     }
 }

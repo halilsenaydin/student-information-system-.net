@@ -8,7 +8,6 @@ namespace Entities.Concretes
     public class TakingLecture:IEntity // Öğrencilerin aldığı ve öğretmenlerin dönem içinde verdiği dersler.
     {
         public int Id { get; set; }
-        public int TeacherId { get; set; }
         public int StudentId { get; set; }
         public int OpenLectureId { get; set; }
     }

@@ -22,6 +22,9 @@ namespace DataAccess.Concretes.EntityFramework
                              join person in context.Persons
                              on student.PersonId equals person.Id
 
+                             join curriculum in context.Curriculums
+                             on student.CurriculumId equals curriculum.Id
+
                              join department in context.Departments
                              on person.DepartmentId equals department.Id
 
@@ -35,6 +38,9 @@ namespace DataAccess.Concretes.EntityFramework
                              {
                                  Id = student.Id,
                                  Class = student.Class,
+                                 Agno = student.Agno,
+                                 Status = student.Status,
+                                 Curriculum = curriculum,
                                  PersonDetail = new PersonDetailDto
                                  {
                                      Id = person.Id,
@@ -68,6 +74,9 @@ namespace DataAccess.Concretes.EntityFramework
                              join person in context.Persons
                              on student.PersonId equals person.Id
 
+                             join curriculum in context.Curriculums
+                             on student.CurriculumId equals curriculum.Id
+
                              join department in context.Departments
                              on person.DepartmentId equals department.Id
 
@@ -81,6 +90,9 @@ namespace DataAccess.Concretes.EntityFramework
                              {
                                  Id = student.Id,
                                  Class = student.Class,
+                                 Agno = student.Agno,
+                                 Status = student.Status,
+                                 Curriculum = curriculum,
                                  PersonDetail = new PersonDetailDto
                                  {
                                      Id = person.Id,

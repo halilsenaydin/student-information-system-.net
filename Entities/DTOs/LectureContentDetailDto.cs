@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Entities.DTOs
 {
-    public class TakingLectureDetailDto:IDto
+    public class LectureContentDetailDto : IDto
     {
         public int Id { get; set; }
-        public StudentDetailDto StudentDetail { get; set; }
-        public OpenLectureDetailDto OpenLectureDetail { get; set; }
+        public string Content { get; set; }
+        public LectureDetailDto LectureDetail { get; set; }
     }
 }

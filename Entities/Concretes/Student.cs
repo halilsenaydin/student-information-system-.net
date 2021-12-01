@@ -11,6 +11,8 @@ namespace Entities.Concretes
         public override int Id { get; set; }
         public int PersonId { get; set; }
         public int CurriculumId { get; set; }
-        public string Class { get; set; }
+        public int Class { get; set; }
+        public decimal Agno { get; set; }
+        public bool Status { get; set; }
     }
 }
