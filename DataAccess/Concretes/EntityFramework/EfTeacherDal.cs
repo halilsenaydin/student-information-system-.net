@@ -55,7 +55,8 @@ namespace DataAccess.Concretes.EntityFramework
                                              AcademicUnitName = academicUnit.AcademicUnitName,
                                              AcademicUnitType = academicUnitType
                                          }
-                                     }
+                                     },
+                                     ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == person.Id).SingleOrDefault()
                                  }
                              };
 
@@ -104,7 +105,8 @@ namespace DataAccess.Concretes.EntityFramework
                                              AcademicUnitName = academicUnit.AcademicUnitName,
                                              AcademicUnitType = academicUnitType
                                          }
-                                     }
+                                     },
+                                     ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == person.Id).SingleOrDefault()
                                  }
                              };
 

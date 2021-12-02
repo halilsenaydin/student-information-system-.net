@@ -36,6 +36,8 @@ namespace DataAccess.Concretes
 		public DbSet<Login> Logins { get; set; }
 		public DbSet<OpenLecture> OpenLectures { get; set; }
 		public DbSet<Person> Persons { get; set; }
+		public DbSet<ProfilePicture> ProfilePictures { get; set; }
+
 		public DbSet<Semester> Semesters { get; set; }
 		public DbSet<Student> Students { get; set; }
 		public DbSet<TakingLecture> TakingLectures { get; set; }

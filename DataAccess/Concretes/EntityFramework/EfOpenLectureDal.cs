@@ -88,7 +88,7 @@ namespace DataAccess.Concretes.EntityFramework
                                              AcademicUnitName = academicUnit.AcademicUnitName,
                                              AcademicUnitType = academicUnitType
                                          }
-                                     }
+                                     },
                                  },
 
                                  TeacherDetail = new TeacherDetailDto
@@ -112,7 +112,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                  AcademicUnitName = academicUnitTeacher.AcademicUnitName,
                                                  AcademicUnitType = academicUnitTypeTeacher
                                              }
-                                         }
+                                         },
+                                         ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personTeacher.Id).SingleOrDefault()
                                      }
                                  }
                              };
@@ -127,7 +128,7 @@ namespace DataAccess.Concretes.EntityFramework
             {
                 var result = from openLecture in context.OpenLectures.Where(filter)
 
-                                 // Of Lecture
+                             // Of Lecture
                              join lecture in context.Lectures
                              on openLecture.LectureId equals lecture.Id
 
@@ -219,7 +220,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                  AcademicUnitName = academicUnitTeacher.AcademicUnitName,
                                                  AcademicUnitType = academicUnitTypeTeacher
                                              }
-                                         }
+                                         },
+                                         ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personTeacher.Id).SingleOrDefault()
                                      }
                                  }
                              };

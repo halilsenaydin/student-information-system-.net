@@ -122,7 +122,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                      AcademicUnitName = academicUnitStudent.AcademicUnitName,
                                                      AcademicUnitType = academicUnitTypeStudent
                                                  }
-                                             }
+                                             },
+                                             ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personStudent.Id).SingleOrDefault()
                                          }
                                      },
                                      OpenLectureDetail = new OpenLectureDetailDto
@@ -151,7 +152,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                          AcademicUnitName = academicUnitTeacher.AcademicUnitName,
                                                          AcademicUnitType = academicUnitTypeTeacher
                                                      }
-                                                 }
+                                                 },
+                                                 ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personTeacher.Id).SingleOrDefault()
                                              }
                                          },
 
@@ -192,8 +194,6 @@ namespace DataAccess.Concretes.EntityFramework
 
                              join letterGradeType in context.LetterGradeTypes
                              on letterGrade.LetterGradeTypeId equals letterGradeType.Id
-
-
 
                              // Of Lecture
                              join takingLecture in context.TakingLectures
@@ -292,7 +292,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                      AcademicUnitName = academicUnitStudent.AcademicUnitName,
                                                      AcademicUnitType = academicUnitTypeStudent
                                                  }
-                                             }
+                                             },
+                                             ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personStudent.Id).SingleOrDefault()
                                          }
                                      },
                                      OpenLectureDetail = new OpenLectureDetailDto
@@ -321,7 +322,8 @@ namespace DataAccess.Concretes.EntityFramework
                                                          AcademicUnitName = academicUnitTeacher.AcademicUnitName,
                                                          AcademicUnitType = academicUnitTypeTeacher
                                                      }
-                                                 }
+                                                 },
+                                                 ProfilePicture = context.ProfilePictures.Where(p => p.PersonId == personTeacher.Id).SingleOrDefault()
                                              }
                                          },
 
