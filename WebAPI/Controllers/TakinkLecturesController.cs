@@ -10,10 +10,10 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExamsController : ControllerBase
+    public class TakinkLecturesController : ControllerBase
     {
-        IExamService _service;
-        public ExamsController(IExamService service)
+        ITakingLectureService _service;
+        public TakinkLecturesController(ITakingLectureService service)
         {
             _service = service;
         }

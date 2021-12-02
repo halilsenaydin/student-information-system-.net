@@ -34,6 +34,7 @@ namespace Business.Concretes
             _dal.Update(entity);
             return new SuccessResult();
         }
+
         public IDataResult<Exam> Get(int id)
         {
             return new SuccessDataResult<Exam>(_dal.Get(a => a.Id == id));
@@ -52,6 +53,16 @@ namespace Business.Concretes
         public IDataResult<ExamDetailDto> GetDto(int id)
         {
             return new SuccessDataResult<ExamDetailDto>(_dal.GetDto(a => a.Id == id));
+        }
+
+        public IDataResult<List<ExamDetailDto>> GetAllDtoByStudentId(int id)
+        {
+            return new SuccessDataResult<List<ExamDetailDto>>(_dal.GetAllDto(e=>e.StudentId == id));
+        }
+
+        public IDataResult<ExamDetailDto> GetDtoByStudentId(int id)
+        {
+            return new SuccessDataResult<ExamDetailDto>(_dal.GetDto(a => a.StudentId == id));
         }
     }
 }

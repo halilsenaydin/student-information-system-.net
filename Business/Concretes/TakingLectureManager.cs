@@ -54,5 +54,14 @@ namespace Business.Concretes
         {
             return new SuccessDataResult<TakingLectureDetailDto>(_dal.GetDto(a => a.Id == id));
         }
-    }
+
+        public IDataResult<List<TakingLectureDetailDto>> GetAllDtoByStudentId(int studentId)
+        {
+            return new SuccessDataResult<List<TakingLectureDetailDto>>(_dal.GetAllDto(e => e.StudentId == studentId));
+        }
+
+        public IDataResult<TakingLectureDetailDto> GetDtoByStudentId(int studentId)
+        {
+            return new SuccessDataResult<TakingLectureDetailDto>(_dal.GetDto(a => a.StudentId == studentId));
+        }
 }

@@ -18,5 +18,8 @@ namespace Business.Abstracts
 
         IDataResult<List<ExamDetailDto>> GetAllDto();
         IDataResult<ExamDetailDto> GetDto(int id);
+
+        IDataResult<List<ExamDetailDto>> GetAllDtoByStudentId(int id);
+        IDataResult<ExamDetailDto> GetDtoByStudentId(int id);
     }
 }
