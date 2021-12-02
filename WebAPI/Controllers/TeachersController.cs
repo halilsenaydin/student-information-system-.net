@@ -13,15 +13,15 @@ namespace WebAPI.Controllers
     [ApiController]
     public class TeachersController : ControllerBase
     {
-        IStudentService _service;
-        public TeachersController(IStudentService service)
+        ITeacherService _service;
+        public TeachersController(ITeacherService service)
         {
             _service = service;
         }
 
         // Post
         [HttpPost("add")]
-        public IActionResult Add(Student entity)
+        public IActionResult Add(Teacher entity)
         {
             var result = _service.Add(entity);
             if (result.Success)
