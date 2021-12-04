@@ -3,7 +3,6 @@ using DataAccess.Abstracts;
 using Entities.Abstracts;
 using Entities.Concretes;
 using Entities.DTOs;
-using Entities.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,8 +1,10 @@
 ﻿using Business.Abstracts;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
+using DataAccess.Abstracts.Views;
 using Entities.Concretes;
 using Entities.DTOs;
+using Entities.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +14,11 @@ namespace Business.Concretes
     public class ExamManager : IExamService
     {
         IExamDal _dal;
-        public ExamManager(IExamDal dal)
+        IExamViewDal _viewDal;
+        public ExamManager(IExamDal dal, IExamViewDal viewDal)
         {
             _dal = dal;
+            _viewDal = viewDal;
         }
 
         public IResult Add(Exam entity)
@@ -63,6 +67,17 @@ namespace Business.Concretes
         public IDataResult<ExamDetailDto> GetDtoByStudentId(int id)
         {
             return new SuccessDataResult<ExamDetailDto>(_dal.GetDto(a => a.StudentId == id));
+        }
+
+        // Views
+        public IDataResult<List<ExamView>> GetAllViewByStudentIdAndSemesterId(int studentId, int semesterId)
+        {
+            return new SuccessDataResult<List<ExamView>>(_viewDal.GetAll(e => e.StudentId == studentId && e.SemesterId == semesterId));
+        }
+
+        public IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int studentId, int semesterId)
+        {
+            return new SuccessDataResult<ExamView>(_viewDal.Get(e => e.StudentId == studentId && e.SemesterId == semesterId));
         }
     }
 }

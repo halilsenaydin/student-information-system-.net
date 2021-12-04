@@ -6,7 +6,9 @@ using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstracts;
+using DataAccess.Abstracts.Views;
 using DataAccess.Concretes.EntityFramework;
+using DataAccess.Concretes.EntityFramework.Views;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,7 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<ExamManager>().As<IExamService>().SingleInstance();
             builder.RegisterType<EfExamDal>().As<IExamDal>().SingleInstance();
+            builder.RegisterType<EfExamViewDal>().As<IExamViewDal>().SingleInstance();
 
             builder.RegisterType<LectureManager>().As<ILectureService>().SingleInstance();
             builder.RegisterType<EfLectureDal>().As<ILectureDal>().SingleInstance();

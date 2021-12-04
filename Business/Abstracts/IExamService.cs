@@ -1,6 +1,7 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concretes;
 using Entities.DTOs;
+using Entities.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,5 +22,8 @@ namespace Business.Abstracts
 
         IDataResult<List<ExamDetailDto>> GetAllDtoByStudentId(int id);
         IDataResult<ExamDetailDto> GetDtoByStudentId(int id);
+
+        IDataResult<List<ExamView>> GetAllViewByStudentIdAndSemesterId(int studentId, int semesterId);
+        IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int studentId, int semesterId);
     }
 }

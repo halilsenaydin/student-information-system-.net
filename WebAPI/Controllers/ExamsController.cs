@@ -89,5 +89,29 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpGet("getviewbystudentidandsemesterid")]
+        public IActionResult GetViewByStudentIdAndSemesterId(int studentId, int semesterId)
+        {
+            var result = _service.GetViewByStudentIdAndSemesterId(studentId, semesterId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getallviewbystudentidandsemesterid")]
+        public IActionResult GetAllViewByStudentIdAndSemesterId(int studentId, int semesterId)
+        {
+            var result = _service.GetAllViewByStudentIdAndSemesterId(studentId, semesterId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
     }
 }

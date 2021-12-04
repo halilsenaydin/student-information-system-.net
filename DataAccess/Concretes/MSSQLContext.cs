@@ -43,5 +43,9 @@ namespace DataAccess.Concretes
 		public DbSet<TakingLecture> TakingLectures { get; set; }
 		public DbSet<Teacher> Teachers { get; set; }
 		public DbSet<TypeOfEducation> TypeOfEducations { get; set; }
+
+		// Views
+		public DbSet<ExamView> ExamView { get; set; }
+
 	}
 }
