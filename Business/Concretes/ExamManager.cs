@@ -75,9 +75,9 @@ namespace Business.Concretes
             return new SuccessDataResult<List<ExamView>>(_viewDal.GetAll(e => e.StudentId == studentId && e.SemesterId == semesterId));
         }
 
-        public IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int studentId, int semesterId)
+        public IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int examId, int studentId, int semesterId)
         {
-            return new SuccessDataResult<ExamView>(_viewDal.Get(e => e.StudentId == studentId && e.SemesterId == semesterId));
+            return new SuccessDataResult<ExamView>(_viewDal.Get(e => e.Id == examId && e.StudentId == studentId && e.SemesterId == semesterId));
         }
     }
 }

@@ -28,6 +28,14 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfExamDal>().As<IExamDal>().SingleInstance();
             builder.RegisterType<EfExamViewDal>().As<IExamViewDal>().SingleInstance();
 
+            builder.RegisterType<TakingLectureManager>().As<ITakingLectureService>().SingleInstance();
+            builder.RegisterType<EfTakingLectureDal>().As<ITakingLectureDal>().SingleInstance();
+            builder.RegisterType<EfTakingLectureViewDal>().As<ITakingLectureViewDal>().SingleInstance();
+
+            builder.RegisterType<OpenLectureManager>().As<IOpenLectureService>().SingleInstance();
+            builder.RegisterType<EfOpenLectureDal>().As<IOpenLectureDal>().SingleInstance();
+            builder.RegisterType<EfOpenLectureViewDal>().As<IOpenLectureViewDal>().SingleInstance();
+
             builder.RegisterType<LectureManager>().As<ILectureService>().SingleInstance();
             builder.RegisterType<EfLectureDal>().As<ILectureDal>().SingleInstance();
 

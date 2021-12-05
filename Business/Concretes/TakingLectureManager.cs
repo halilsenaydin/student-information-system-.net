@@ -1,9 +1,11 @@
 ﻿using Business.Abstracts;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
+using DataAccess.Abstracts.Views;
 using Entities.Abstracts;
 using Entities.Concretes;
 using Entities.DTOs;
+using Entities.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,9 +15,12 @@ namespace Business.Concretes
     public class TakingLectureManager : ITakingLectureService
     {
         ITakingLectureDal _dal;
-        public TakingLectureManager(ITakingLectureDal dal)
+        ITakingLectureViewDal _viewDal;
+
+        public TakingLectureManager(ITakingLectureDal dal, ITakingLectureViewDal viewDal)
         {
             _dal = dal;
+            _viewDal = viewDal;
         }
 
         public IResult Add(TakingLecture entity)
@@ -55,14 +60,14 @@ namespace Business.Concretes
             return new SuccessDataResult<TakingLectureDetailDto>(_dal.GetDto(a => a.Id == id));
         }
 
-        public IDataResult<List<TakingLectureDetailDto>> GetAllDtoByStudentId(int studentId)
+        public IDataResult<List<TakingLectureView>> GetAllViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
         {
-            return new SuccessDataResult<List<TakingLectureDetailDto>>(_dal.GetAllDto(e => e.StudentId == studentId));
+            return new SuccessDataResult<List<TakingLectureView>>(_viewDal.GetAll(t => t.TeacherId == teacherId && t.SemesterId == semesterId));
         }
 
-        public IDataResult<TakingLectureDetailDto> GetDtoByStudentId(int studentId)
+        public IDataResult<TakingLectureView> GetViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
         {
-            return new SuccessDataResult<TakingLectureDetailDto>(_dal.GetDto(a => a.StudentId == studentId));
+            return new SuccessDataResult<TakingLectureView>(_viewDal.Get(t => t.TeacherId == teacherId && t.SemesterId == semesterId));
         }
     }
 }

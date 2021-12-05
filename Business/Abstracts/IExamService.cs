@@ -24,6 +24,6 @@ namespace Business.Abstracts
         IDataResult<ExamDetailDto> GetDtoByStudentId(int id);
 
         IDataResult<List<ExamView>> GetAllViewByStudentIdAndSemesterId(int studentId, int semesterId);
-        IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int studentId, int semesterId);
+        IDataResult<ExamView> GetViewByStudentIdAndSemesterId(int examId, int studentId, int semesterId);
     }
 }

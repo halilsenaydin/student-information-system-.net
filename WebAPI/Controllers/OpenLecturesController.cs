@@ -10,10 +10,10 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExamsController : ControllerBase
+    public class OpenLecturesController : ControllerBase
     {
-        IExamService _service;
-        public ExamsController(IExamService service)
+        IOpenLectureService _service;
+        public OpenLecturesController(IOpenLectureService service)
         {
             _service = service;
         }
@@ -66,10 +66,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getdtobystudentid")]
-        public IActionResult GetDtoByStudentId(int id)
+        [HttpGet("getviewbyteacheridandsemesterid")]
+        public IActionResult GetViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
         {
-            var result = _service.GetDtoByStudentId(id);
+            var result = _service.GetViewByTeacherIdAndSemesterId(teacherId, semesterId);
             if (result.Success)
             {
                 return Ok(result);
@@ -78,34 +78,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalldtobystudentid")]
-        public IActionResult GetAllDtoByStudentId(int id)
+        [HttpGet("getallviewbyteacheridandsemesterid")]
+        public IActionResult GetAllViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
         {
-            var result = _service.GetAllDtoByStudentId(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
-
-        [HttpGet("getviewbystudentidandsemesterid")]
-        public IActionResult GetViewByStudentIdAndSemesterId(int examId, int studentId, int semesterId)
-        {
-            var result = _service.GetViewByStudentIdAndSemesterId(examId, studentId, semesterId);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
-
-        [HttpGet("getallviewbystudentidandsemesterid")]
-        public IActionResult GetAllViewByStudentIdAndSemesterId(int studentId, int semesterId)
-        {
-            var result = _service.GetAllViewByStudentIdAndSemesterId(studentId, semesterId);
+            var result = _service.GetAllViewByTeacherIdAndSemesterId(teacherId, semesterId);
             if (result.Success)
             {
                 return Ok(result);
