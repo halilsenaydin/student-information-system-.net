@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Core.Entities.Concrete;
+using Core.Utilities.Results;
 using Entities.Abstracts;
 using Entities.Concretes;
 using Entities.DTOs;
@@ -13,5 +14,12 @@ namespace Business.Abstracts
         IResult Add(AbstractPerson entity);
         IResult Delete(AbstractPerson entity);
         IResult Update(AbstractPerson entity);
+
+        IDataResult<Person> GetByUserName(string userName);
+        IDataResult<PersonOperationClaimDto> GetClaimsByUserName(string userName);
+
+        Person Get(int id);
+        Person GetByIdentityNumber(string identityNumber);
+        Person GetByEmail(string email);
     }
 }

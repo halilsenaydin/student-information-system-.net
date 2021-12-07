@@ -15,6 +15,7 @@ namespace Business.Abstracts
 
         IDataResult<List<Contact>> GetAll();
         IDataResult<Contact> Get(int id);
+        IDataResult<Contact> GetByPersonId(int personId);
 
         IDataResult<List<ContactDetaiDto>> GetAllDto();
         IDataResult<ContactDetaiDto> GetDto(int id);

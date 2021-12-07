@@ -9,8 +9,7 @@ using System.Text;
 
 namespace DataAccess.Abstracts
 {
-    public interface ILoginDal : IEntityRepository<Login>
+    public interface IPersonOperationClaimDal : IEntityRepository<UserOperationClaim>
     {
-        List<OperationClaim> GetClaimsOfPerson(int personId);
     }
 }

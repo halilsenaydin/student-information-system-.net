@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Entities.Concrete;
 using DataAccess.Abstracts;
 using Entities.Abstracts;
 using Entities.Concretes;
@@ -14,14 +15,17 @@ namespace DataAccess.Concretes.EntityFramework
 {
     public class EfLoginDal : EfEntityRepositoryBase<Login, MSSQLContext>, ILoginDal
     {
-        public List<LoginDetailDto> GetAllDto(Expression<Func<Login, bool>> filter = null)
+        public List<OperationClaim> GetClaimsOfPerson(int personId)
         {
-            throw new NotImplementedException();
-        }
-
-        public LoginDetailDto GetDto(Expression<Func<Login, bool>> filter)
-        {
-            throw new NotImplementedException();
+            using (var context = new MSSQLContext())
+            {
+                var result = from operationClaim in context.OperationClaims
+                             join userOperationClaim in context.UserOperationClaims
+                             on operationClaim.Id equals userOperationClaim.OperationClaimId
+                             where userOperationClaim.UserId == personId
+                             select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
+                return result.ToList();
+            }
         }
     }
 }

@@ -42,9 +42,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<TeacherManager>().As<ITeacherService>().SingleInstance();
             builder.RegisterType<EfTeacherDal>().As<ITeacherDal>().SingleInstance();
 
-            // builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
-
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

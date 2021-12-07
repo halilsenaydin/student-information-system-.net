@@ -39,6 +39,11 @@ namespace Business.Concretes
             return new SuccessDataResult<Contact>(_dal.Get(a => a.Id == id));
         }
 
+        public IDataResult<Contact> GetByPersonId(int personId)
+        {
+            return new SuccessDataResult<Contact>(_dal.Get(a => a.PersonId == personId));
+        }
+
         public IDataResult<List<Contact>> GetAll()
         {
             return new SuccessDataResult<List<Contact>>(_dal.GetAll());

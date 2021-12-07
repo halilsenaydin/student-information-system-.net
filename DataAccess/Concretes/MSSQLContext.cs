@@ -1,4 +1,5 @@
-﻿using Entities.Concretes;
+﻿using Core.Entities.Concrete;
+using Entities.Concretes;
 using Entities.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,6 +36,8 @@ namespace DataAccess.Concretes
 		public DbSet<LetterGradeType> LetterGradeTypes { get; set; }
 		public DbSet<Login> Logins { get; set; }
 		public DbSet<OpenLecture> OpenLectures { get; set; }
+		public DbSet<OperationClaim> OperationClaims { get; set; }
+		public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 		public DbSet<Person> Persons { get; set; }
 		public DbSet<ProfilePicture> ProfilePictures { get; set; }
 
