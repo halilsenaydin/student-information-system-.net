@@ -38,5 +38,42 @@ namespace WebAPI.Controllers
             return Ok(token);
         }
 
+        [HttpPost("registerforstudent")]
+        public ActionResult RegisterForStudent(RegisterForStudentDto registerForStudent)
+        {
+            var userExists = _service.UserExists(registerForStudent.Email);
+            if (!userExists.Success)
+            {
+                return BadRequest(userExists.Message);
+            }
+
+            var registerResult = _service.RegisterForStudent(registerForStudent);
+            var result = _service.CreateAccessToken(registerResult.Data);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("registerforteacher")]
+        public ActionResult RegisterForTeacher(RegisterForTeacherDto registerForTeacher)
+        {
+            var userExists = _service.UserExists(registerForTeacher.Email);
+            if (!userExists.Success)
+            {
+                return BadRequest(userExists.Message);
+            }
+
+            var registerResult = _service.RegisterForTeacher(registerForTeacher);
+            var result = _service.CreateAccessToken(registerResult.Data);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
     }
 }

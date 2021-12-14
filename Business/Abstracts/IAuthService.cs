@@ -11,7 +11,10 @@ namespace Business.Abstracts
 {
     public interface IAuthService
     {
+        IDataResult<Person> RegisterForStudent(RegisterForStudentDto registerForStudentDto);
+        IDataResult<Person> RegisterForTeacher(RegisterForTeacherDto registerForTeacherDto);
         IDataResult<Person> Login(LoginDto loginDto);
         IDataResult<AccessToken> CreateAccessToken(Person person);
+        IResult UserExists(string userName);
     }
 }
