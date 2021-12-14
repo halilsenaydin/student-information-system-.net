@@ -1,5 +1,7 @@
-﻿using DataAccess.Abstracts;
+﻿using Core.Utilities.Security.Hashing;
+using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
+using Entities.Concretes;
 using System;
 
 namespace ConsoleUI
@@ -8,12 +10,21 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            IStudentDal studentDal = new EfStudentDal();
-            var result = studentDal.GetAll();
-            foreach (var item in result)
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash("halil25", out passwordHash, out passwordSalt);
+            ILoginDal loginDal = new EfLoginDal();
+
+
+            var login = new Login
             {
-                Console.WriteLine(item.Class);
-            }
+                PersonId = 1,
+                UserName = "46960020108",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                Status = true
+            };
+
+            loginDal.Add(login);
         }
     }
 }
