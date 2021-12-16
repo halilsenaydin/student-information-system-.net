@@ -69,7 +69,7 @@ namespace Business.Concretes
                 OperationClaims = claims
             };
 
-            return new SuccessDataResult<PersonOperationClaimDto>();
+            return new SuccessDataResult<PersonOperationClaimDto>(personDto);
         }
         public IDataResult<Person> PersonExist(string userName)
         {
