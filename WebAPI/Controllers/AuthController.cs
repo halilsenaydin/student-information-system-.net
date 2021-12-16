@@ -20,8 +20,8 @@ namespace WebAPI.Controllers
             _service = service;
         }
 
-        [HttpGet("login")]
-        public IActionResult Login(LoginDto loginDto)
+        [HttpPost("login")]
+        public ActionResult Login(LoginDto loginDto)
         {
             var result = _service.Login(loginDto);
             if (!result.Success)

@@ -25,16 +25,18 @@ namespace Business.Concretes
             _personService = personService;
             _teacherService = teacherService;
             _studentService = studentService;
+            _contactService = contactService;
+            _loginService = loginService;
         }
 
         public IDataResult<AccessToken> CreateAccessToken(Person person)
         {
             var claims = _loginService.GetClaimsOfPerson(person.Id);
-            var contact = _contactService.GetByPersonId(person.Id);
+            //var contact = _contactService.GetByPersonId(person.Id);
             User user = new User()
             {
                 Id = person.Id,
-                Email = contact.Data.Email,
+                Email = person.Email,
                 FirstName = person.FirstName,
                 LastName = person.LastName
             };
@@ -54,14 +56,15 @@ namespace Business.Concretes
 
         public IDataResult<Person> Login(LoginDto loginDto)
         {
-            var userToCheckByUserName = _loginService.PersonExist(loginDto.UserName);
-            if (!userToCheckByUserName.Success)
+            var userToCheckByUserName = _personService.PersonExist(loginDto.UserName);
+            if (userToCheckByUserName.Success)
             {
                 return new ErrorDataResult<Person>("Kullanıcı bulunamadı");
             }
 
             var login = _loginService.GetByUserName(loginDto.UserName);
-            if (!HashingHelper.VerifyPasswordHash(loginDto.Password, login.PasswordHash, login.PasswordSalt))
+            bool isValid = HashingHelper.VerifyPasswordHash(loginDto.Password, login.PasswordHash, login.PasswordSalt);
+            if (!isValid)
             {
                 return new ErrorDataResult<Person>("Parola hatası");
             }

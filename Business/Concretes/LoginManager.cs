@@ -14,11 +14,9 @@ namespace Business.Concretes
     public class LoginManager : ILoginService
     {
         ILoginDal _dal;
-        IPersonService _personService;
-        public LoginManager(ILoginDal dal, IPersonService personService)
+        public LoginManager(ILoginDal dal)
         {
             _dal = dal;
-            _personService = personService;
         }
 
         public IResult Add(Login entity)
@@ -46,18 +44,6 @@ namespace Business.Concretes
         public List<OperationClaim> GetClaimsOfPerson(int personId)
         {
             return _dal.GetClaimsOfPerson(personId);
-        }
-
-        public IDataResult<Person> PersonExist(string userName)
-        {
-            var login = _dal.Get(l=>l.UserName == userName);
-            if (login != null)
-            {
-                return new ErrorDataResult<Person>("Kullanıcı mevcut");
-            }
-
-            var person = _personService.Get(login.PersonId);
-            return new SuccessDataResult<Person>(person); // Kullanıcı mevcut değil.
         }
     }
 }

@@ -17,6 +17,5 @@ namespace Business.Abstracts
 
         Login GetByUserName(string userName);
         List<OperationClaim> GetClaimsOfPerson(int personId);
-        IDataResult<Person> PersonExist(string userName);
     }
 }

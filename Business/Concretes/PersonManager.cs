@@ -71,5 +71,16 @@ namespace Business.Concretes
 
             return new SuccessDataResult<PersonOperationClaimDto>();
         }
+        public IDataResult<Person> PersonExist(string userName)
+        {
+            var login = _loginService.GetByUserName(userName);
+            var person = Get(login.PersonId);
+            if (login != null)
+            {
+                return new ErrorDataResult<Person>(person, "Kullanıcı mevcut");
+            }
+
+            return new SuccessDataResult<Person>(person); // Kullanıcı mevcut değil.
+        }
     }
 }

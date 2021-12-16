@@ -21,5 +21,6 @@ namespace Business.Abstracts
         Person Get(int id);
         Person GetByIdentityNumber(string identityNumber);
         Person GetByEmail(string email);
+        IDataResult<Person> PersonExist(string userName);
     }
 }

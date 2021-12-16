@@ -24,6 +24,21 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<StudentManager>().As<IStudentService>().SingleInstance();
             builder.RegisterType<EfStudentDal>().As<IStudentDal>().SingleInstance();
 
+            builder.RegisterType<ForeignStudentManager>().As<IForeignStudentService>().SingleInstance();
+            builder.RegisterType<EfForeignStudentDal>().As<IForeignStudentDal>().SingleInstance();
+
+            builder.RegisterType<PersonManager>().As<IPersonService>().SingleInstance();
+            builder.RegisterType<EfPersonDal>().As<IPersonDal>().SingleInstance();
+
+            builder.RegisterType<AcademicUnitManager>().As<IAcademicUnitService>().SingleInstance();
+            builder.RegisterType<EfAcademicUnitDal>().As<IAcademicUnitDal>().SingleInstance();
+
+            builder.RegisterType<ContactManager>().As<IContactService>().SingleInstance();
+            builder.RegisterType<EfContactDal>().As<IContactDal>().SingleInstance();
+
+            builder.RegisterType<DepartmentManager>().As<IDepartmentService>().SingleInstance();
+            builder.RegisterType<EfDepartmentDal>().As<IDepartmentDal>().SingleInstance();
+
             builder.RegisterType<ExamManager>().As<IExamService>().SingleInstance();
             builder.RegisterType<EfExamDal>().As<IExamDal>().SingleInstance();
             builder.RegisterType<EfExamViewDal>().As<IExamViewDal>().SingleInstance();
