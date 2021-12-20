@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataAccess.Abstracts.Views
 {
-    public interface IOpenLectureViewDal : IEntityRepository<OpenLectureView>
+    public interface IOpenLectureViewDal : IViewRepository<OpenLectureView>
     {
     }
 }

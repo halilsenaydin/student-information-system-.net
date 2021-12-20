@@ -79,5 +79,29 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpGet("getdtobyusername")]
+        public IActionResult GetDtoByUserName(string userName)
+        {
+            var result = _service.GetDtoByUserName(userName);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getallcount")]
+        public IActionResult GetAllCount()
+        {
+            var result = _service.GetAllCount();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
     }
 }

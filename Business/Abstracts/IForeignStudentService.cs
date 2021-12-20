@@ -18,5 +18,7 @@ namespace Business.Abstracts
 
         IDataResult<List<ForeignStudentDetailDto>> GetAllDto();
         IDataResult<ForeignStudentDetailDto> GetDto(int id);
+
+        IDataResult<int> GetAllCount();
     }
 }

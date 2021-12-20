@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataAccess.Abstracts.Views
 {
-    public interface IExamViewDal : IEntityRepository<ExamView>
+    public interface IExamViewDal : IViewRepository<ExamView>
     {
     }
 }

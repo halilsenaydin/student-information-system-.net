@@ -53,5 +53,11 @@ namespace Business.Concretes
         {
             return new SuccessDataResult<ForeignStudentDetailDto>(_dal.GetDto(a => a.Id == id));
         }
+
+        public IDataResult<int> GetAllCount()
+        {
+            var result = _dal.GetAll();
+            return new SuccessDataResult<int>(result.Count);
+        }
     }
 }

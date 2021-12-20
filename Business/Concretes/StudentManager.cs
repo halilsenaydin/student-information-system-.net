@@ -13,9 +13,11 @@ namespace Business.Concretes
     public class StudentManager : IStudentService
     {
         IStudentDal _dal;
-        public StudentManager(IStudentDal dal)
+        IPersonService _personService;
+        public StudentManager(IStudentDal dal, IPersonService personService)
         {
             _dal = dal;
+            _personService = personService;
         }
 
         public IResult Add(Student entity)
@@ -53,6 +55,19 @@ namespace Business.Concretes
         public IDataResult<StudentDetailDto> GetDto(int id)
         {
             return new SuccessDataResult<StudentDetailDto>(_dal.GetDto(a => a.Id == id));
+        }
+
+        public IDataResult<StudentDetailDto> GetDtoByUserName(string userName)
+        {
+            var person = _personService.GetByUserName(userName);
+            int personId = person.Data.Id;
+            return new SuccessDataResult<StudentDetailDto>(_dal.GetDto(a => a.PersonId == personId));
+        }
+
+        public IDataResult<int> GetAllCount()
+        {
+            var result = _dal.GetAll();
+            return new SuccessDataResult<int>(result.Count);
         }
     }
 }

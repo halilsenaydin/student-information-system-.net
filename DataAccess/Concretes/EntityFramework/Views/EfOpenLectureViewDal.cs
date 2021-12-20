@@ -13,7 +13,7 @@ using System.Text;
 
 namespace DataAccess.Concretes.EntityFramework.Views
 {
-    public class EfOpenLectureViewDal : EfEntityRepositoryBase<OpenLectureView, MSSQLContext>, IOpenLectureViewDal
+    public class EfOpenLectureViewDal : EfViewRepositoryBase<OpenLectureView, MSSQLContext>, IOpenLectureViewDal
     {
     }
 }

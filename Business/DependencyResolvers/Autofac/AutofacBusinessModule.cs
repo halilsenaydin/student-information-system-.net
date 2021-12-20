@@ -54,6 +54,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<LectureManager>().As<ILectureService>().SingleInstance();
             builder.RegisterType<EfLectureDal>().As<ILectureDal>().SingleInstance();
 
+            builder.RegisterType<SemesterManager>().As<ISemesterService>().SingleInstance();
+            builder.RegisterType<EfSemesterDal>().As<ISemesterDal>().SingleInstance();
+
             builder.RegisterType<TeacherManager>().As<ITeacherService>().SingleInstance();
             builder.RegisterType<EfTeacherDal>().As<ITeacherDal>().SingleInstance();
 
