@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Entities.Concretes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,12 +11,25 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TakingLecturesController : ControllerBase
+    public class DenotationsController : ControllerBase
     {
-        ITakingLectureService _service;
-        public TakingLecturesController(ITakingLectureService service)
+        IDenotationService _service;
+        public DenotationsController(IDenotationService service)
         {
             _service = service;
+        }
+
+        // Post
+        [HttpPost("add")]
+        public IActionResult Add(Denotation entity)
+        {
+            var result = _service.Add(entity);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
         }
 
         [HttpGet("get")]
@@ -34,30 +48,6 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _service.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
-
-        [HttpGet("getdto")]
-        public IActionResult GetDto(int id)
-        {
-            var result = _service.GetDto(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
-
-        [HttpGet("getalldto")]
-        public IActionResult GetAllDto()
-        {
-            var result = _service.GetAllDto();
             if (result.Success)
             {
                 return Ok(result);

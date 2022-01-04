@@ -20,6 +20,8 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<AcademicUnitManager>().As<IAcademicUnitService>().SingleInstance();
+            builder.RegisterType<EfAcademicUnitDal>().As<IAcademicUnitDal>().SingleInstance();
 
             builder.RegisterType<StudentManager>().As<IStudentService>().SingleInstance();
             builder.RegisterType<EfStudentDal>().As<IStudentDal>().SingleInstance();
@@ -30,6 +32,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PersonManager>().As<IPersonService>().SingleInstance();
             builder.RegisterType<EfPersonDal>().As<IPersonDal>().SingleInstance();
 
+            builder.RegisterType<PersonOperationClaimManager>().As<IPersonOperationClaimService>().SingleInstance();
+            builder.RegisterType<EfPersonOperationClaimDal>().As<IPersonOperationClaimDal>().SingleInstance();
+
             builder.RegisterType<AcademicUnitManager>().As<IAcademicUnitService>().SingleInstance();
             builder.RegisterType<EfAcademicUnitDal>().As<IAcademicUnitDal>().SingleInstance();
 
@@ -39,13 +44,15 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<DepartmentManager>().As<IDepartmentService>().SingleInstance();
             builder.RegisterType<EfDepartmentDal>().As<IDepartmentDal>().SingleInstance();
 
+            builder.RegisterType<DenotationManager>().As<IDenotationService>().SingleInstance();
+            builder.RegisterType<EfDenotationDal>().As<IDenotationDal>().SingleInstance();
+
             builder.RegisterType<ExamManager>().As<IExamService>().SingleInstance();
             builder.RegisterType<EfExamDal>().As<IExamDal>().SingleInstance();
             builder.RegisterType<EfExamViewDal>().As<IExamViewDal>().SingleInstance();
 
             builder.RegisterType<TakingLectureManager>().As<ITakingLectureService>().SingleInstance();
             builder.RegisterType<EfTakingLectureDal>().As<ITakingLectureDal>().SingleInstance();
-            builder.RegisterType<EfTakingLectureViewDal>().As<ITakingLectureViewDal>().SingleInstance();
 
             builder.RegisterType<OpenLectureManager>().As<IOpenLectureService>().SingleInstance();
             builder.RegisterType<EfOpenLectureDal>().As<IOpenLectureDal>().SingleInstance();

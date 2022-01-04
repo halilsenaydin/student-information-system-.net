@@ -16,5 +16,6 @@ namespace Entities.DTOs
         public TypeOfEducation TypeOfEducation { get; set; }
         public LectureType LectureType { get; set; }
         public Curriculum Curriculum { get; set; }
+        public List<LectureContent> LectureContents { get; set; }
     }
 }

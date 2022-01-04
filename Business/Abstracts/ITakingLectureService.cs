@@ -19,8 +19,5 @@ namespace Business.Abstracts
 
         IDataResult<List<TakingLectureDetailDto>> GetAllDto();
         IDataResult<TakingLectureDetailDto> GetDto(int id);
-
-        IDataResult<List<TakingLectureView>> GetAllViewByTeacherIdAndSemesterId(int teacherId, int semesterId);
-        IDataResult<TakingLectureView> GetViewByTeacherIdAndSemesterId(int teacherId, int semesterId);
     }
 }

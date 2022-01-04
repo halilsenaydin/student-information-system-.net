@@ -23,17 +23,20 @@ namespace Business.Concretes
 
         public IResult Add(AbstractPerson entity)
         {
-            throw new NotImplementedException();
+            _dal.Add((Person)entity);
+            return new SuccessResult();
         }
 
         public IResult Delete(AbstractPerson entity)
         {
-            throw new NotImplementedException();
+            _dal.Delete((Person)entity);
+            return new SuccessResult();
         }
 
         public IResult Update(AbstractPerson entity)
         {
-            throw new NotImplementedException();
+            _dal.Update((Person)entity);
+            return new SuccessResult();
         }
 
         public Person Get(int id)

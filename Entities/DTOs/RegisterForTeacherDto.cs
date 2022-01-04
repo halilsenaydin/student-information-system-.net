@@ -15,9 +15,6 @@ namespace Entities.DTOs
         public string IdentityNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; } // University Mail Address
-
-        // For Logins Table
-        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

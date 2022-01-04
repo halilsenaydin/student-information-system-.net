@@ -15,12 +15,10 @@ namespace Business.Concretes
     public class TakingLectureManager : ITakingLectureService
     {
         ITakingLectureDal _dal;
-        ITakingLectureViewDal _viewDal;
 
-        public TakingLectureManager(ITakingLectureDal dal, ITakingLectureViewDal viewDal)
+        public TakingLectureManager(ITakingLectureDal dal)
         {
             _dal = dal;
-            _viewDal = viewDal;
         }
 
         public IResult Add(TakingLecture entity)
@@ -58,16 +56,6 @@ namespace Business.Concretes
         public IDataResult<TakingLectureDetailDto> GetDto(int id)
         {
             return new SuccessDataResult<TakingLectureDetailDto>(_dal.GetDto(a => a.Id == id));
-        }
-
-        public IDataResult<List<TakingLectureView>> GetAllViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
-        {
-            return new SuccessDataResult<List<TakingLectureView>>(_viewDal.GetAll(t => t.TeacherId == teacherId && t.SemesterId == semesterId));
-        }
-
-        public IDataResult<TakingLectureView> GetViewByTeacherIdAndSemesterId(int teacherId, int semesterId)
-        {
-            return new SuccessDataResult<TakingLectureView>(_viewDal.Get(t => t.TeacherId == teacherId && t.SemesterId == semesterId));
         }
     }
 }

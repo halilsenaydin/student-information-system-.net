@@ -46,6 +46,7 @@ namespace DataAccess.Concretes.EntityFramework
                                  LectureType = lectureType,
                                  TypeOfEducation = typeOfEducation,
                                  Curriculum = curriculum,
+                                 LectureContents = context.LectureContents.Where(lc=>lc.LectureId == lecture.Id).ToList(),
                                  DepartmentDetail = new DepartmentDetailDto
                                  {
                                      Id = department.Id,
@@ -95,6 +96,7 @@ namespace DataAccess.Concretes.EntityFramework
                                  LectureType = lectureType,
                                  TypeOfEducation = typeOfEducation,
                                  Curriculum = curriculum,
+                                 LectureContents = context.LectureContents.Where(lc => lc.LectureId == lecture.Id).ToList(),
                                  DepartmentDetail = new DepartmentDetailDto
                                  {
                                      Id = department.Id,

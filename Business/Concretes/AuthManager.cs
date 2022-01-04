@@ -75,14 +75,15 @@ namespace Business.Concretes
         public IDataResult<Person> RegisterForStudent(RegisterForStudentDto registerForStudentDto)
         {
             byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(registerForStudentDto.Password, out passwordHash, out passwordSalt);
+            var password = "741963qwe";
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var person = new Person
             {
                 IdentityNumber = registerForStudentDto.IdentityNumber,
                 DepartmentId = registerForStudentDto.DepartmentId,
                 FirstName = registerForStudentDto.FirstName,
                 LastName = registerForStudentDto.LastName,
-                Email = registerForStudentDto.Email
+                Email = String.Format("{0}.{1}20@ogr.atauni.edu.tr", registerForStudentDto.FirstName.ToLower(), registerForStudentDto.LastName.ToLower())
             };
             _personService.Add(person);
 
@@ -112,14 +113,15 @@ namespace Business.Concretes
         public IDataResult<Person> RegisterForTeacher(RegisterForTeacherDto registerForTeacherDto)
         {
             byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(registerForTeacherDto.Password, out passwordHash, out passwordSalt);
+            var password = "741963qwe";
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var person = new Person
             {
                 IdentityNumber = registerForTeacherDto.IdentityNumber,
                 DepartmentId = registerForTeacherDto.DepartmentId,
                 FirstName = registerForTeacherDto.FirstName,
                 LastName = registerForTeacherDto.LastName,
-                Email = registerForTeacherDto.Email
+                Email = String.Format("{0}.{1}@atauni.edu.tr", registerForTeacherDto.FirstName.ToLower(), registerForTeacherDto.LastName.ToUpper())
             };
             _personService.Add(person);
 

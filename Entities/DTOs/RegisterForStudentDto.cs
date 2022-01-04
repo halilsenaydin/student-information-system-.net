@@ -11,16 +11,12 @@ namespace Entities.DTOs
         public int CurriculumId { get; set; }
         public int Class { get; set; }
         public decimal Agno { get; set; }
-        public bool Status { get; set; }
 
         // For Persons Tables
         public int DepartmentId { get; set; }
         public string IdentityNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; } // University Mail Address
-
-        // For Logins Table
-        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

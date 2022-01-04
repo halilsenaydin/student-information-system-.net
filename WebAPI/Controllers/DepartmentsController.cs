@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Entities.Concretes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,12 +11,25 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TakingLecturesController : ControllerBase
+    public class DepartmentsController : ControllerBase
     {
-        ITakingLectureService _service;
-        public TakingLecturesController(ITakingLectureService service)
+        IDepartmentService _service;
+        public DepartmentsController(IDepartmentService service)
         {
             _service = service;
+        }
+
+        // Post
+        [HttpPost("add")]
+        public IActionResult Add(Department entity)
+        {
+            var result = _service.Add(entity);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
         }
 
         [HttpGet("get")]

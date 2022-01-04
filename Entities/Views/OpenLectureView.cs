@@ -17,6 +17,7 @@ namespace Entities.Views
         public string SemesterName { get; set; }
 
         // Lectures
+        public int LectureId { get; set; }
         public string LectureName { get; set; }
         public string LectureCode { get; set; }
         public int Class { get; set; }

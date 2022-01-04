@@ -9,7 +9,6 @@ namespace Entities.Views
     {
         // AcademicUnits
         public int Id { get; set; }
-        public int AcademicUnitTypeId { get; set; }
         public string AcademicUnitName { get; set; }
 
         // AcademicUnitTypes
