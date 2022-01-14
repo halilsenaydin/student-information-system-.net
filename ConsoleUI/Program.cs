@@ -14,21 +14,22 @@ namespace ConsoleUI
         {
            /*
             byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash("aysenur.25", out passwordHash, out passwordSalt);
+            HashingHelper.CreatePasswordHash("admin123", out passwordHash, out passwordSalt);
             ILoginDal loginDal = new EfLoginDal();
 
 
             var login = new Login
             {
-                PersonId = 4,
-                UserName = "aysenurozturk",
+                PersonId = 1026,
+                UserName = "admin",
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Status = true
             };
 
             loginDal.Add(login);
-            */
+           */
+            
         }
     }
 }

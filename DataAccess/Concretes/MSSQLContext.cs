@@ -23,6 +23,7 @@ namespace DataAccess.Concretes
 		public DbSet<AcademicUnit> AcademicUnits { get; set; }
 		public DbSet<Contact> Contacts { get; set; }
 		public DbSet<Country> Countries { get; set; }
+		public DbSet<Consultant> Consultants { get; set; }
 		public DbSet<Curriculum> Curriculums { get; set; }
 		public DbSet<Denotation> Denotations { get; set; }
 		public DbSet<Department> Departments { get; set; }
@@ -43,6 +44,7 @@ namespace DataAccess.Concretes
 
 		public DbSet<Semester> Semesters { get; set; }
 		public DbSet<Student> Students { get; set; }
+		public DbSet<SystemAdministrator> SystemAdministrators { get; set; }
 		public DbSet<TakingLecture> TakingLectures { get; set; }
 		public DbSet<Teacher> Teachers { get; set; }
 		public DbSet<TypeOfEducation> TypeOfEducations { get; set; }
